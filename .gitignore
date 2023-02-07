@@ -1,6 +1,6 @@
 node_modules
+/audios
 .env*
 .flaskenv*
 !.env.project
 !.env.vault
-audios
