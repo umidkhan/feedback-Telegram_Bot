@@ -13,10 +13,10 @@ bot.setMyCommands([
   { command: "/stop", description: "Stop the bot" },
 ]);
 
-const start = () => {
   bot.on("message", async (msg) => {
     const text = msg.text;
     const chatId = msg.chat.id;
+    // "/start" command event
     if (text === "/start") {
       await bot.sendMessage(
         chatId,
@@ -27,7 +27,14 @@ const start = () => {
           `@${msg.chat.username} follow your bot\n Time: ${msg.date}`
         ),
         console.log(msg);
-    } else if (text === "/admin") {
+    } else if (text === "Salom" || text === "Assalomu alaykum") {
+        bot.sendMessage(
+            chatId,
+            `Salom ${msg.chat.first_name}`
+        )
+    }
+
+    else if (text === "/admin") {
       await bot.sendMessage(
         chatId,
         `Ushbu bot @umidkhan_pulatkhanov tomonidan yaratilgan`
@@ -43,15 +50,6 @@ const start = () => {
         `Fikr-mulohazangiz uchun tashakkur ${msg.chat.first_name} 🤗`
       ),
         bot.sendVoice(chatId, audio),
-        bot.sendMessage(chatId, `${msg.chat.username} wrote ${msg.text}`);
+        bot.sendMessage(chatId, `@${msg.chat.username} wrote ${msg.text}`);
     }
-    // else if (text === !"/start" || text === !"/admin") {
-    //   await bot.sendMessage(
-    //     chatId,
-    //     `Kechirasiz 😕\n ${msg.text} buyruq mavjud emas 🤷🏽‍♂️\n Tekshirib qaytadan urining`
-    //   );
-    // }
   });
-};
-
-start();

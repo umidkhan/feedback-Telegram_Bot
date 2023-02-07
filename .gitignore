@@ -1,6 +1,6 @@
-node_modules
-/audios
+/node_modules
 .env*
 .flaskenv*
-.env.project
-.env.vault
+!.env.project
+!.env.vault
+audios
