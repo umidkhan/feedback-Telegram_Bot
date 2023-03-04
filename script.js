@@ -2,7 +2,7 @@ const TelegramApi = require("node-telegram-bot-api");
 require("dotenv").config();
 
 const token = process.env.TOKEN;
-const audio = process.env.AUDIO;
+const audio = './audio/sog-bolasiz.ogg';
 const umidxonId = process.env.MY_CHAT_ID;
 const bot = new TelegramApi(token, { polling: true });
 
@@ -50,6 +50,6 @@ bot.setMyCommands([
         `Fikr-mulohazangiz uchun tashakkur ${msg.chat.first_name} 🤗`
       ),
         bot.sendVoice(chatId, audio),
-        bot.sendMessage(chatId, `@${msg.chat.username} wrote ${msg.text}`);
+        bot.sendMessage(umidxonId, `@${msg.chat.username} wrote ${msg.text}`);
     }
   });
